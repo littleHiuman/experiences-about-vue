@@ -94,7 +94,7 @@ require('!style-loader!css-loader!less-loader!./assets/css/common_m.less')
 ```
 
 ---
-** cssloader：**
+**cssloader：**
 
 ```
 {
