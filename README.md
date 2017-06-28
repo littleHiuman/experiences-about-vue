@@ -617,3 +617,29 @@ ref的使用：
 在父页面调用子组件的标签：
 
 在父页面中的组件上加ref。然后在子组件中的某个标签加ref。即可。
+
+---
+nextTick
+
+将回调延迟到下次 DOM 更新循环之后执行。
+
+https://cn.vuejs.org/v2/api/#vm-nextTick
+
+```
+new Vue({
+  // ...
+  methods: {
+    // ...
+    example: function () {
+      // 修改数据
+      this.message = 'changed'
+      // DOM 还没有更新
+      this.$nextTick(function () {
+        // DOM 现在更新了
+        // `this` 绑定到当前实例
+        this.doSomethingElse()
+      })
+    }
+  }
+})
+```
