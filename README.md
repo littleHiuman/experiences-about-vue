@@ -582,7 +582,7 @@ flex是放大比例（flex-grow） 缩小比例（flex-shrink）占据的空间�
 
 flex: 1（相当于 1 1 0%）
 
-使用flex属性后，该元素最好添加width属性，值为flex-basis定义的值。 
+使用flex属性后，该元素最好添加width属性，值为flex-basis定义的值。 如：flex: 0 0 100px;
 
 ---
 vue项目中，不用写兼容性代码。
@@ -610,6 +610,9 @@ v-html可以直接加<br>进行换行，v-model中无效
 
 ---
 删除线效果 text-decoration: line-through
+
+---
+iScroll
 
 ---
 ref的使用：
