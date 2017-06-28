@@ -516,7 +516,19 @@ example1.items.splice(newLength)
 ```
 
 ---
-父组件给子组件传参，通过props属性。
+父组件给子组件传参，通过props属性。还可以定义类型
+
+https://cn.vuejs.org/v2/guide/components.html#Prop-验证
+
+除了以下定义一种类型的写法，还有多种类型，必传且是某个类型，某个类型且有默认值，某个类型但默认值由一个工厂函数返回，或者是自定义
+```
+props: {
+  username: String,
+}
+
+// 全局注册的组件的写法：
+props: ['myMessage'],
+```
 
 子组件给父组件传参，通过this.$emit('方法', '内容')
 
@@ -646,3 +658,12 @@ new Vue({
   }
 })
 ```
+
+---
+```box-sizing: border-box```
+
+---
+:disabled="type == '值'"
+
+---
+
