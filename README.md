@@ -27,7 +27,7 @@ no-sequences？
 
 block-spacing？
 
- 
+
 
 比较时，使用全等号
 
@@ -42,16 +42,15 @@ yoda：yoda条件语句就是对象字面量应该写在比较操作符的左边
 
 不以新行开始的块 { 前面要不要有空格
 
- 
+
 
 立即调用函数的写法：
 
 ```
 (function() {
-　　// body 
+  // body 
 }());
 ```
- 
 
 只能使用单引号
 
@@ -79,7 +78,6 @@ Vue实例中 最后一个属性末不需要加逗号
 
 对象里的最后一项，不需要加逗号
 
-
 ---
 **引入css文件：**
 
@@ -91,25 +89,21 @@ Vue实例中 最后一个属性末不需要加逗号
 
 3. main.js中引入需要写loader（inport/require）
 
+```
 require('!style-loader!css-loader!less-loader!./assets/css/common_m.less')
+```
 
 ---
 ** cssloader：**
+
 ```
 {
-
 　　test: /\.css$/,
-
 　　loader: "style-loader!css-loader",
-
 },
-
 {
-
 　　test: /\.less$/,
-
 　　loader: "style-loader!css-loader!less-loader",
-
 },
 ```
 
@@ -127,16 +121,13 @@ css scoped 仅本组件
 
 ---
 对象可以存图片。使用require即可。
+
 ```
 images: {
-
-　　error: require('../assets/images/toast-error.png'),
-
-　　success: require('../assets/images/toast-success.png'),
-
-　　load: require('../assets/images/toast-load.gif'),
-
-　　waiting: require('../assets/images/toast-hourglass.svg')
+　　error: require('./toast-error.png'),
+　　success: require('./toast-success.png'),
+　　load: require('./toast-load.gif'),
+　　waiting: require('./toast-hourglass.svg')
 }
 ```
 
@@ -151,15 +142,15 @@ Ajax。axios。
 
 v-bind:style src to ...
 
-
 ---
 路由传参。$route。
 
 历史记录切换。router-link to/:to或者router.push()/router.replace()
 
- 
+
 
 #router.push(location) 导航到不同的 URL
+
 ```
 // 声明式
 <router-link :to="...">
@@ -183,6 +174,7 @@ router.push({ path: 'register', query: { plan: 'private' }})
 
 ---
 #router.replace(location) 它不会向 history 添加新记录，而是跟它的方法名一样 —— 替换掉当前的 history 记录。
+
 ```
 // 声明式
 <router-link :to="..." replace>
@@ -195,6 +187,7 @@ router.replace(...)
 #router.go(n) 在 history 记录中向前或者后退多少步，类似 window.history.go(n) 值可以正可以负
 
 **综合使用**
+
 ```
 const router = new VueRouter({
 　　routes: [
@@ -223,6 +216,7 @@ https://jsfiddle.net/posva/6du90epg/
 有时候想同时（同级）展示多个视图，而不是嵌套展示，例如创建一个布局，有 sidebar（侧导航） 和 main（主内容） 两个视图，这个时候命名视图就派上用场了。
 
 你可以在界面中拥有多个单独命名的视图，而不是只有一个单独的出口。如果 router-view 没有设置名字，那么默认为 default。
+
 ```
 <router-view class="view one"></router-view>
 
@@ -232,19 +226,12 @@ https://jsfiddle.net/posva/6du90epg/
 // 一个视图使用一个组件渲染，因此对于同个路由，多个视图就需要多个组件。确保正确使用 components 配置（带上 s）：
 
 const router = new VueRouter({
-
 　　routes: [
-
 　　　　{
-
 　　　　　　path: '/',
-
 　　　　　　components: {
-
 　　　　　　　　default: Foo,
-
 　　　　　　　　a: Bar,
-
 　　　　　　　　b: Baz
 　　　　　　}
 　　　　}
@@ -254,7 +241,6 @@ const router = new VueRouter({
 
 ---
 重定向 和 别名
-
 
 
 切换时清空历史记录。数据丢失。sessionStorage。
@@ -273,6 +259,7 @@ append。
 $route.params（一个 key/value 对象，包含了 动态片段 和 全匹配片段，如果没有路由参数，就是一个空对象。）
 
 $route.query（一个 key/value 对象，表示 URL 查询参数。例如，对于路径 /foo?user=1，则有 $route.query.user == 1，如果没有查询参数，则是个空对象。）
+
 ```
 <div>
     <router-link :to="{ name: 'Hello' , params: { userId: 123 }}">
@@ -295,15 +282,12 @@ console.log(this.$route.query.show)
 
 ---
 watch：
+
 ```
 watch: {
-
 　　'$route' (to, from) {
-
 　　// 对路由变化作出响应...
-
 　　}
-
 }
 ```
 
@@ -316,19 +300,16 @@ v-show v-if 。v-if为假直接不渲染。v-show为假display none。
 
 ---
 **过渡效果：**
+
 ```
 <transition name="fade"></transition>
 
 .fade-enter-active, .fade-leave-active {
-
 　　-webkit-transition: opacity .7s;
-
 　　transition: opacity .7s;
-
 }
 
 .fade-enter, .fade-leave-active {
-
 　　opacity: 0
 }
 ```
@@ -340,11 +321,10 @@ component页面内也可以监听路由。
 
 ---
 滚动行为。历史记录之间切换。页面位置。返回对象。
+
 ```
 scrollBehavior (to, from, savedPosition) {
-
 　　return { x: 0, y: 0 }
-
 }
 ```
 
@@ -387,35 +367,24 @@ At all:
 　　缺点：（1）还是需要团队交流，建立合理区分各种加载方式的组件文件夹
   
 ---
+
 ```
 export default new Router({
-
 　　routes: [
-
 　　　　{
-
 　　　　　　path: '/',
-
 　　　　　　component: resolve => require(['components/Hello.vue'], resolve)
-
 　　　　},
-
 　　　　{
-
 　　　　　　path: '/about',
-
 　　　　　　component: resolve => require(['components/About.vue'], resolve)
-
 　　　　}
-
 　　]
-
 })
 ```　　
 
-solve：
-
-components/page
+// solve：
+// components/page
 
 ---
 <keep-alive> 包裹动态组件时，会缓存不活动的组件实例，而不是销毁它们。和 <transition> 相似，<keep-alive> 是一个抽象组件：它自身不会渲染一个 DOM 元素，也不会出现在父组件链中。
@@ -424,45 +393,36 @@ components/page
 
 主要用于保留组件状态或避免重新渲染。
 
- 
- ---
+---
  组件：
 
 当注册组件（或者 props）时，可以使用 kebab-case ，camelCase ，或 TitleCase 。Vue 不关心这个。
+
 ```
 // 在组件定义中
 
 components: {
 
 　　// 使用 kebab-case 形式注册
-
 　　'kebab-cased-component': { },
 
 　　// register using camelCase
-
 　　'camelCasedComponent': { },
 
 　　// register using TitleCase
-
 　　'TitleCasedComponent': { }
 }
-```
 
----
-在 HTML 模版中，请使用 kebab-case 形式：
-```
-<!-- 在HTML模版中始终使用 kebab-case -->
+<!-- 在HTML模版中始终使用 kebab-case 形式 -->
 
 <kebab-cased-component></kebab-cased-component>
 
 <camel-cased-component></camel-cased-component>
 
 <title-cased-component></title-cased-component>
-```
 
----
-当使用字符串模式时，可以不受 HTML 的 case-insensitive 限制。
-```
+// 当使用字符串模式时，不受 HTML 的 case-insensitive 限制。
+
 <!-- 在字符串模版中可以用任何你喜欢的方式! -->
 
 <my-component></my-component>
@@ -492,73 +452,65 @@ components: {
 例如， <MyComponent></MyComponent> 不会转为为小写形式，直接以 MyComponent 为基础开始匹配。
 
 当然，匹配的规则依次匹配：原标签名、camelCase化的标签名、PascalCase化的标签名。
+
 ```
 //之前在 1.0 不能正常运行的示例代码，在 2.0 中可以正常运行了：
 
 Vue.component('MyComponent', {
-
 　　template: '<div>hello, world</div>'
-
 })
 
 new Vue({
-
 　　el: '#app',
-
 　　template: '<MyComponent></MyComponent>'
-
 })
 ```
 
 ---
 在 Vue 1.0 和 2.0 中还有一种定义组件模板的方式，即使用 DOM 元素。在这种情况下，解析模板时仍然会将标签转为小写形式。所以下面的代码，在 1.0 和 2.0 均不能正常运行。
+
 ```
 // index.html
 
 <div id="app">
-
 　　<MyComponent></MyComponent>
-
 </div>
 
 // main.js
 Vue.component('MyComponent', {
-
 　　template: '<div>hello, world</div>'
-
 })
 
 new Vue({
-
 　　el: '#app'
-
 })
 ``` 
 
 ---
-由于 JavaScript 的限制， Vue 不能检测以下变动的数组：：
+由于 JavaScript 的限制， Vue 不能检测以下变动的数组：
+
 ```
 // 当你利用索引直接设置一个项时，例如
-
 vm.items[indexOfItem] = newValue
 
 // 当你修改数组的长度时，例如：
-
 vm.items.length = newLength
 ```
 
 
 为了解决第一类问题，以下两种方式都可以实现和 vm.items[indexOfItem] = newValue 相同的效果， 同时也将触发状态更新：
+
 ```
 // Vue.set
-
 Vue.set(example1.items, indexOfItem, newValue)
 
 // Array.prototype.splice`
-
 example1.items.splice(indexOfItem, 1, newValue)
 ```
+
+
 为了解决第二类问题，你也同样可以使用 splice：
+
 ```
 example1.items.splice(newLength)
 ```
@@ -577,6 +529,7 @@ vertical-align: top;
 
 ---
 一行文字超出省略号：
+
 ```
 white-space: nowrap
 
@@ -587,6 +540,7 @@ text-overflow: ellipsis
 
 ---
 空白间隙去掉的方法：
+
 ```
 font-size: 0;
 
@@ -595,11 +549,13 @@ font-size: 0;
 
 ---
 filter类似滤镜效果。模糊效果。
+
 ```
 filter: blur(10px)
 ```
 
 同上类似。模糊效果（仅对背景生效，仅限iOS系统）
+
 ```
 backdrop-filter: blur(10px)
 ```
