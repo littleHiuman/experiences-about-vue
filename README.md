@@ -108,7 +108,7 @@ require('!style-loader!css-loader!less-loader!./assets/css/common_m.less')
 ```
 
 ---
-<router-view></router-view>与写的位置无关
+// <router-view></router-view>与写的位置无关
 
 ---
 path.join(__dirname,'..');
@@ -666,4 +666,21 @@ new Vue({
 :disabled="type == '值'"
 
 ---
+:class = name
 
+name可以是computed
+
+---
+$dispatch 和 $broadcast在vue2.0中已经弃用，推荐使用一个专用的状态管理层如：Vuex 。
+
+或者子组件和父组件之间 相互传参。
+
+---
+getBoundingClientRect用于获取某个元素相对于视窗的位置集合。集合中有top, right, bottom, left等属性。
+
+---
+点击事件。取消冒泡。
+
+v-on:click.stop="doThis"
+
+https://cn.vuejs.org/v2/guide/events.html#事件修饰符
