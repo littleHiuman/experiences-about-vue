@@ -683,4 +683,30 @@ getBoundingClientRect用于获取某个元素相对于视窗的位置集合。�
 
 v-on:click.stop="doThis"
 
+阻止默认事件。
+
+v-on:click.prevent="doThis"
+
 https://cn.vuejs.org/v2/guide/events.html#事件修饰符
+
+---
+判断页面来源。
+
+https://router.vuejs.org/zh-cn/advanced/navigation-guards.html
+
+---
+组件内部的方法，命名建议以两个下划线开头
+
+外部传参方法等，不用两个下划线开头。
+
+---
+padding取%值，
+
+> %，规定基于父元素的宽度的百分比的内边距。
+
+---
+给按钮加padding。方便点击
+
+或者整个部分可以点击。
+
+---
