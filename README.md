@@ -710,3 +710,62 @@ padding取%值，
 或者整个部分可以点击。
 
 ---
+过滤：filter
+
+```
+// 计算属性
+computed: {
+  evenNumbers: function () {
+    return this.numbers.filter(function (number) {
+      return number % 2 === 0
+    })
+  }
+}
+
+// 或者，你也可以在计算属性不适用的情况下 (例如，在嵌套 v-for 循环中) 使用 method 方法：
+
+<li v-for="n in even(numbers)">{{ n }}</li>
+
+data: {
+  numbers: [ 1, 2, 3, 4, 5 ]
+},
+methods: {
+  even: function (numbers) {
+    return numbers.filter(function (number) {
+      return number % 2 === 0
+    })
+  }
+}
+
+// -----------------
+// 过滤器函数
+<!-- in mustaches -->
+{{ message | capitalize }}
+<!-- in v-bind -->
+<div v-bind:id="rawId | formatId"></div>
+
+// PS： 为了在其他指令中实现更复杂的数据变换，你应该使用计算属性。
+
+new Vue({
+  // ...
+  filters: {
+    capitalize: function (value) {
+      if (!value) return ''
+      value = value.toString()
+      return value.charAt(0).toUpperCase() + value.slice(1)
+    }
+  }
+})
+
+// 过滤器可以串联：
+{{ message | filterA | filterB }}
+
+// 过滤器是 JavaScript 函数，因此可以接受参数：
+
+{{ message | filterA('arg1', arg2) }}
+
+// 这里，字符串 'arg1' 将传给过滤器作为第二个参数， arg2 表达式的值将被求值然后传给过滤器作为第三个参数。
+```
+
+https://cn.vuejs.org/v2/guide/list.html#显示过滤-排序结果
+https://cn.vuejs.org/v2/guide/syntax.html#过滤器
