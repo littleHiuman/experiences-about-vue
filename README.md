@@ -769,3 +769,14 @@ new Vue({
 
 https://cn.vuejs.org/v2/guide/list.html#显示过滤-排序结果
 https://cn.vuejs.org/v2/guide/syntax.html#过滤器
+
+---
+export 和 export default
+
+http://es6.ruanyifeng.com/#docs/module#export-命令
+http://es6.ruanyifeng.com/#docs/module#export-default-命令
+
+---
+切换组件时，希望保留组件的状态时，加上keep-alive 即可
+
+---
