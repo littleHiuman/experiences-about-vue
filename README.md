@@ -329,7 +329,7 @@ scrollBehavior (to, from, savedPosition) {
 ```
 
 ---
-锚点的实现。通过scrollTop。
+锚点的实现。通过scrollTop或者滚动行为。
 
 路由元信息。路由嵌套。
 
