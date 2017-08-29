@@ -101,10 +101,12 @@ require('!style-loader!css-loader!less-loader!./assets/css/common_m.less')
 ```
 {
 　　test: /\.css$/,
+　　exclude: /node_modules/,
 　　loader: "style-loader!css-loader",
 },
 {
 　　test: /\.less$/,
+　　exclude: /node_modules/,
 　　loader: "style-loader!css-loader!less-loader",
 },
 ```
@@ -140,7 +142,9 @@ border。各屏幕分辨率不同出现的粗细问题。
 
 Ajax。axios。
 
-能用data数据解决的问题，不用方法解决。如取反。长度。是否空/false/true。
+**跨域问题的解决：1.服务器端协助配置。2.jsonp。3.devServer配置代理。**
+
+能用data数据解决的问题，不用方法解决。如取反。长度。是否空/false/true。**（Vue是数据驱动而不是结构驱动）**
 
 v-bind:style src to ...
 
@@ -175,7 +179,7 @@ router.push({ path: 'register', query: { plan: 'private' }})
 ```
 
 ---
-#router.replace(location) 它不会向 history 添加新记录，而是跟它的方法名一样 —— 替换掉当前的 history 记录。
+#router.replace(location) 它不会向 history 添加新记录，而是替换掉当前的 history 记录。
 
 ```
 // 声明式
@@ -244,12 +248,12 @@ const router = new VueRouter({
 ---
 重定向 和 别名
 
-
+---
 切换时清空历史记录。数据丢失。sessionStorage。
 
 相对路径。
 
-append。
+append。concat。
 
 渲染成某个标签。tag
 
@@ -294,11 +298,11 @@ watch: {
 ```
 
 ---
-v-show v-if 。v-if为假直接不渲染。v-show为假display none。
+v-show和v-if 。v-if为假直接不渲染。v-show为假display none。
 
 当 v-if 与 v-for 一起使用时，v-for 具有比 v-if 更高的优先级。
 
-外容器overflow hidden，内容器overflow scroll。
+个人建议：外容器overflow hidden，内容器overflow scroll。
 
 ---
 **过渡效果：**
@@ -317,7 +321,7 @@ v-show v-if 。v-if为假直接不渲染。v-show为假display none。
 ```
 
 ---
-路由钩子 判断从哪个路由过来，到哪个路由。然后跳转到哪个路由。（全局钩子。局部钩子。）
+路由钩子：判断从哪个路由过来，到哪个路由。然后跳转到哪个路由。（全局钩子。局部钩子。）
 
 component页面内也可以监听路由。
 
@@ -599,7 +603,7 @@ flex: 1（相当于 1 1 0%）
 使用flex属性后，该元素最好添加width属性，值为flex-basis定义的值。 如：flex: 0 0 100px;
 
 ---
-vue项目中，不用写兼容性代码。
+vue项目中，不用写CSS的兼容性代码。
 
 因为vue-loader在编译.vue文件的时候，使用了Postcss的工具，它会给有兼容性问题的属性添加兼容性代码。
 
