@@ -93,6 +93,8 @@ Vue实例中 最后一个属性末不需要加逗号
 require('!style-loader!css-loader!less-loader!./assets/css/common_m.less')
 ```
 
+**PS：在webpack中配置好了loader之后，不需要在引入文件时写loader和文件后缀。 **
+
 ---
 **cssloader：**
 
